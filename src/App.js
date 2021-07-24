@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import mockCategories from "./mock";
+import Lecupon from './components/Lecupon'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as B from "reactstrap";
 import * as S from "./styles";
@@ -67,6 +68,7 @@ function App() {
 
   return (
     <S.Container>
+      <Lecupon />
       <S.WrapperInput>
         <S.InputArea>
           <B.InputGroup>
