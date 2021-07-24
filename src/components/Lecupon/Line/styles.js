@@ -149,7 +149,7 @@ how to remove the virtical space around the range input in IE*/
     margin-left: 15px;
 
     input {
-      width: 50px;
+      width: 3.5rem;
       border: none;
       outline: 0;
       color: rgb(70, 70, 70);
