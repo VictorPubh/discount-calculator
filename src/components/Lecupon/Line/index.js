@@ -1,33 +1,38 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
 import { CustomInput } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as S from "./styles";
 
-const Line = ({ name, discount, min, max, defaultValue }) => {
+const Line = ({ icon, name, discount, min, max, defaultValue }) => {
   const [value, setValue] = useState(defaultValue);
 
   return (
-    <Container>
-      <span>{`${name} (${discount}%)`}</span>
-      <CustomInput
-        type="range"
-        min={min}
-        max={max}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </Container>
+
+      <S.Container>
+        <FontAwesomeIcon className="icon" icon={icon} />
+
+        <p>
+          {`${name}`}
+          <span>{`(${discount}%)`}</span>
+        </p>
+
+        <CustomInput
+          type="range"
+          className="customRange"
+          min={min}
+          max={max}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+
+        <input
+          type="number"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </S.Container>
+ 
   );
 };
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 11rem 1fr 5rem;
-  gap: 2rem;
-`;
 
 export default Line;
