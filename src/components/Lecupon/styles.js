@@ -34,8 +34,8 @@ export const Result = styled.div`
 
     span {
       margin-left: 10px;
-      font-size: 20px;
-      padding: 10px 15px;
+      font-size: 17px;
+      padding: 12px 15px;
     }
   }
 `;

@@ -40,9 +40,14 @@ const Lecupon = () => {
       ))}
 
       {discount ? (
-        <Result>
-            Valor Economizado <span>{discount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-        </Result>
+        <>
+          <Result>
+              Economia/mês <span>{discount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+          </Result>
+          <Result>
+              Economia/ano <span>{(discount * 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+          </Result>
+        </>
       ) : null}
     </Container>
   );
