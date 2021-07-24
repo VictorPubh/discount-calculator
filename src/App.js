@@ -8,10 +8,16 @@ function App() {
   const [categories, setCategories] = useState(mockCategories);
   const [dailyValue, setDailyValue] = useState(20);
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const [monthValue, setMonthValue] = useState();
   const [yearValue, setYearValue] = useState();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [discountMonthValue, setDiscountMonthValue] = useState();
+  const [discountYearValue, setDiscountYearValue] = useState();
+
+  const [totalMonthValue, setTotalMonthValue] = useState();
+  const [totalYearValue, setTotalYearValue] = useState();
 
   const discountCalculator = (discount) => {
     const month = dailyValue * 30;
@@ -19,24 +25,38 @@ function App() {
     const discountMonth = (discount / 100) * month;
     const discountYear = (discount / 100) * year;
 
-    if (isOpen) {
-      setIsOpen(false);
+    if (dailyValue) {
+      if (isOpen) {
+        setIsOpen(false);
 
-      setTimeout(() => {
-        setMonthValue(month - discountMonth);
-        setYearValue(year - discountYear);
+        setTimeout(() => {
+          setMonthValue(month);
+          setYearValue(year);
+          setDiscountMonthValue(discountMonth);
+          setDiscountYearValue(discountYear);
+          setTotalMonthValue(month - discountMonth);
+          setTotalYearValue(year - discountYear);
+          setIsOpen(true);
+        }, 500);
+      } else {
+        setMonthValue(month);
+        setYearValue(year);
+        setDiscountMonthValue(discountMonth);
+        setDiscountYearValue(discountYear);
+        setTotalMonthValue(month - discountMonth);
+        setTotalYearValue(year - discountYear);
         setIsOpen(true);
-      }, 500);
-    } else {
-      setMonthValue(month - discountMonth);
-      setYearValue(year - discountYear);
-      setIsOpen(true);
+      }
     }
 
     console.log(`mês: ${month}`);
     console.log(`desconto no mês: ${discountMonth}`);
     console.log(`ano: ${year}`);
     console.log(`desconto no ano: ${discountYear}`);
+  };
+
+  const handleAddClass = (selector) => {
+    document.querySelector(`card-${selector}`).setAttribute("class", "active");
   };
 
   return (
@@ -68,27 +88,30 @@ function App() {
 
       <B.Collapse isOpen={isOpen}>
         <S.WrapperResults>
-          {/* {monthValue ? <S.Month>R${monthValue}</S.Month> : null} */}
           <S.Month>
             <span>Mensal</span>
-            <p>Valor mensal: R$ 100</p>
-            <p>Desconto mensal: R$ 10</p>
-            <p>Total mensal: R$ 90</p>
+            <p>Valor mensal: R${monthValue}</p>
+            <p>Desconto mensal: R${discountMonthValue}</p>
+            <p>Total mensal: R${totalMonthValue}</p>
           </S.Month>
           <S.Year>
             <span>Anual</span>
-            <p>Valor anual: R$ 100</p>
-            <p>Desconto anual: R$ 10</p>
-            <p>Total anual: R$ 90</p>
+            <p>Valor anual: R${yearValue}</p>
+            <p>Desconto anual: R${discountYearValue}</p>
+            <p>Total anual: R${totalYearValue}</p>
           </S.Year>
-          {/* {yearValue ? <h1>{yearValue}</h1> : null} */}
         </S.WrapperResults>
       </B.Collapse>
 
       <S.WrapperCards>
         {categories.map((category) => (
-          <S.Card>
-            <S.CardBody onClick={() => discountCalculator(category.discount)}>
+          <S.Card className={`cards card-${category.class}`}>
+            <S.CardBody
+              onClick={() => {
+                discountCalculator(category.discount);
+                handleAddClass(category.class);
+              }}
+            >
               <S.Icon>
                 <FontAwesomeIcon
                   className={category.class}

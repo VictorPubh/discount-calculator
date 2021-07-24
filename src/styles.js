@@ -49,31 +49,33 @@ export const WrapperCards = styled.div`
 `;
 
 export const Card = styled.div`
-  background-color: #ccc;
+  background-color: #e9ecef;
   border-radius: 1.25rem;
   cursor: pointer;
 
-  &:hover {
-    background-color: #bbb;
-
+  & {
     .restaurante {
-      color: blue;
+      color: green;
     }
     .academia {
       color: blue;
     }
     .combustivel {
-      color: blue;
+      color: red;
     }
     .medicamentos {
-      color: blue;
+      color: red;
     }
     .odontologia {
-      color: blue;
+      color: white;
     }
     .cinema {
-      color: blue;
+      color: orange;
     }
+  }
+
+  &:active {
+    background-color: #ccc;
   }
 `;
 
