@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import mockCategories from "./mock";
+import Lecupon from "./components/Lecupon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as B from "reactstrap";
 import * as S from "./styles";
@@ -49,17 +50,17 @@ function App() {
       }
     }
 
-    console.log(`mês: ${month}`);
-    console.log(`desconto no mês: ${discountMonth}`);
-    console.log(`ano: ${year}`);
-    console.log(`desconto no ano: ${discountYear}`);
+    console.log(`Mês: ${month}`);
+    console.log(`Desconto no mês: ${discountMonth}`);
+    console.log(`Ano: ${year}`);
+    console.log(`Desconto no ano: ${discountYear}`);
   };
 
   const handleAddClass = (selector) => {
     // Remove All Class "active"
-    const allCards = document.querySelectorAll('.cards')
-    for(let i = 0; i < allCards.length; i++) {
-      allCards[i].classList.remove('active')
+    const allCards = document.querySelectorAll(".cards");
+    for (let i = 0; i < allCards.length; i++) {
+      allCards[i].classList.remove("active");
     }
     // Add New Class
     document.querySelector(`.card-${selector}`).classList.add("active");
@@ -67,7 +68,8 @@ function App() {
 
   return (
     <S.Container>
-      <S.WrapperInput>
+      <Lecupon />
+      {/* <S.WrapperInput>
         <S.InputArea>
           <B.InputGroup>
             <B.InputGroupAddon addonType="prepend">
@@ -129,7 +131,7 @@ function App() {
             </S.CardBody>
           </S.Card>
         ))}
-      </S.WrapperCards>
+      </S.WrapperCards> */}
     </S.Container>
   );
 }
