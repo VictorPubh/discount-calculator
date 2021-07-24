@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
 import * as S from "./styles";
 import { CustomInput } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +6,7 @@ import { useGlobals } from "../../../context/globals";
 
 const Line = ({ id, icon, name, discount, min, max, amount, handleChange }) => {
   const { categories, setCategories } = useGlobals();
-  
+
   const [value, setValue] = useState(amount);
   useEffect(() => {
     let state = categories;
@@ -21,30 +20,31 @@ const Line = ({ id, icon, name, discount, min, max, amount, handleChange }) => {
   }, [value]);
 
   return (
+    <S.Container>
+      <span>
+        <FontAwesomeIcon className="icon" icon={icon} />
+        {`${name}`}
+        <b>{`(${discount}%)`}</b>
+      </span>
+      <CustomInput
+        type="range"
+        className="customRange"
+        min={min}
+        max={max}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
 
-      <S.Container>
-        <span>
-          <FontAwesomeIcon className="icon" icon={icon} />
-          {`${name}`}
-          <b>{`(${discount}%)`}</b>
-        </span>
-
-        <CustomInput
-          type="range"
-          className="customRange"
-          min={min}
-          max={max}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
+      <p>
+        R$
         <input
           className="valueInput"
           type="number"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-      </S.Container>
- 
+      </p>
+    </S.Container>
   );
 };
 

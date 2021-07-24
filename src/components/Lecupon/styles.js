@@ -27,4 +27,15 @@ export const Result = styled.div`
     padding: 8px 20px;
     margin-left: 15px;
   }
+
+  @media (max-width: 800px) {
+    text-align: center;
+    font-size: 15px;
+
+    span {
+      margin-left: 10px;
+      font-size: 20px;
+      padding: 10px 15px;
+    }
+  }
 `;

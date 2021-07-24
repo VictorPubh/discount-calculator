@@ -9,10 +9,9 @@ export const Container = styled.div`
   @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
-
-    .valueInput {
-      margin-top: 0.5rem;
-    }
+    gap: 8px;
+    padding-bottom: 28px;
+    border-bottom: 1px dashed #cccccc;
   }
 
   .icon {
@@ -141,19 +140,28 @@ how to remove the virtical space around the range input in IE*/
     }
   }
 
-  input {
-    width: 50px;
-    margin-left: 15px;
-    border: none;
-    outline: 0;
+  p {
+    display: flex;
+    align-items: center;
     color: rgb(70, 70, 70);
     font-weight: bold;
-  }
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-  input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
+    margin: 0;
+    margin-left: 15px;
+
+    input {
+      width: 50px;
+      border: none;
+      outline: 0;
+      color: rgb(70, 70, 70);
+      font-weight: bold;
+
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+    }
   }
 `;
