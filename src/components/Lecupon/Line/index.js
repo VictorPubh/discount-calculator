@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { CustomInput } from "reactstrap";
 import { useGlobals } from "../../../context/globals";
 
-const Line = ({ id, name, discount, min, max, amount }) => {
+const Line = ({ id, name, discount, min, max, amount, handleChange }) => {
   const { categories, setCategories } = useGlobals();
   
   const [value, setValue] = useState(amount);
@@ -15,6 +15,7 @@ const Line = ({ id, name, discount, min, max, amount }) => {
       }
     });
     setCategories(state);
+    handleChange(value);
   }, [value]);
 
   return (

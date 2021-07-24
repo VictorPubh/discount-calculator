@@ -50,10 +50,10 @@ function App() {
       }
     }
 
-    console.log(`mês: ${month}`);
-    console.log(`desconto no mês: ${discountMonth}`);
-    console.log(`ano: ${year}`);
-    console.log(`desconto no ano: ${discountYear}`);
+    console.log(`Mês: ${month}`);
+    console.log(`Desconto no mês: ${discountMonth}`);
+    console.log(`Ano: ${year}`);
+    console.log(`Desconto no ano: ${discountYear}`);
   };
 
   const handleAddClass = (selector) => {

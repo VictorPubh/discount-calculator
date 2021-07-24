@@ -26,7 +26,7 @@ const Categories = [
     class: "academia",
     min: 0,
     max: 1000,
-    amount: 120,
+    amount: 120
   },
   {
     id: "com",
