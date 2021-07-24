@@ -1,9 +1,21 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState, useEffect } from "react";
+import styled from "styled-components";
 import { CustomInput } from "reactstrap";
+import { useGlobals } from "../../../context/globals";
 
-const Line = ({ name, discount, min, max, defaultValue }) => {
-  const [value, setValue] = useState(defaultValue);
+const Line = ({ id, name, discount, min, max, amount }) => {
+  const { categories, setCategories } = useGlobals();
+  
+  const [value, setValue] = useState(amount);
+  useEffect(() => {
+    let state = categories;
+    state.map((category, index) => {
+      if (category.id == id) {
+        category.amount = value;
+      }
+    });
+    setCategories(state);
+  }, [value]);
 
   return (
     <Container>
