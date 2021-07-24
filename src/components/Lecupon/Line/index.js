@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import * as S from "./styles";
 import { CustomInput } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useGlobals } from "../../../context/globals";
 
-const Line = ({ id, name, discount, min, max, amount, handleChange }) => {
+const Line = ({ id, icon, name, discount, min, max, amount, handleChange }) => {
   const { categories, setCategories } = useGlobals();
   
   const [value, setValue] = useState(amount);
@@ -19,28 +21,31 @@ const Line = ({ id, name, discount, min, max, amount, handleChange }) => {
   }, [value]);
 
   return (
-    <Container>
-      <span>{`${name} (${discount}%)`}</span>
-      <CustomInput
-        type="range"
-        min={min}
-        max={max}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </Container>
+
+      <S.Container>
+        <span>
+          <FontAwesomeIcon className="icon" icon={icon} />
+          {`${name}`}
+          <b>{`(${discount}%)`}</b>
+        </span>
+
+        <CustomInput
+          type="range"
+          className="customRange"
+          min={min}
+          max={max}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <input
+          className="valueInput"
+          type="number"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </S.Container>
+ 
   );
 };
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 11rem 1fr 5rem;
-  gap: 2rem;
-`;
 
 export default Line;

@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 70vw;
   margin: 2.5rem auto;
+
+  @media (max-width: 800px) {
+    width: 85vw;
+  }
 `;
 
 export const WrapperInput = styled.div`

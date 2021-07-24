@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import mockCategories from "./mock";
-import Lecupon from './components/Lecupon'
+import Lecupon from "./components/Lecupon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as B from "reactstrap";
 import * as S from "./styles";
@@ -58,9 +58,9 @@ function App() {
 
   const handleAddClass = (selector) => {
     // Remove All Class "active"
-    const allCards = document.querySelectorAll('.cards')
-    for(let i = 0; i < allCards.length; i++) {
-      allCards[i].classList.remove('active')
+    const allCards = document.querySelectorAll(".cards");
+    for (let i = 0; i < allCards.length; i++) {
+      allCards[i].classList.remove("active");
     }
     // Add New Class
     document.querySelector(`.card-${selector}`).classList.add("active");
@@ -69,7 +69,7 @@ function App() {
   return (
     <S.Container>
       <Lecupon />
-      <S.WrapperInput>
+      {/* <S.WrapperInput>
         <S.InputArea>
           <B.InputGroup>
             <B.InputGroupAddon addonType="prepend">
@@ -131,7 +131,7 @@ function App() {
             </S.CardBody>
           </S.Card>
         ))}
-      </S.WrapperCards>
+      </S.WrapperCards> */}
     </S.Container>
   );
 }

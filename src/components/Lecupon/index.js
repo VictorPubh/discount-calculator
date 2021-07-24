@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
-import * as B from "reactstrap";
-import { Container } from "./styles";
 import { useGlobals } from "../../context/globals";
+
+import { Container, Result } from "./styles";
 
 import Line from "./Line";
 
@@ -34,12 +34,15 @@ const Lecupon = () => {
           min={category.min}
           max={category.max}
           amount={category.amount}
+          icon={category.icon}
           handleChange={(value) => handleChange(value)}
         />
       ))}
 
       {discount ? (
-          <h1>{discount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h1>
+        <Result>
+            Valor Economizado <span>{discount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+        </Result>
       ) : null}
     </Container>
   );
