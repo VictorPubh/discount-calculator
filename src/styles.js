@@ -74,8 +74,8 @@ export const Card = styled.div`
     }
   }
 
-  &:active {
-    background-color: #ccc;
+  &.active {
+    background-color: rgb(220, 220, 220);
   }
 `;
 

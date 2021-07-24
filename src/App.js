@@ -56,7 +56,13 @@ function App() {
   };
 
   const handleAddClass = (selector) => {
-    document.querySelector(`card-${selector}`).setAttribute("class", "active");
+    // Remove All Class "active"
+    const allCards = document.querySelectorAll('.cards')
+    for(let i = 0; i < allCards.length; i++) {
+      allCards[i].classList.remove('active')
+    }
+    // Add New Class
+    document.querySelector(`.card-${selector}`).classList.add("active");
   };
 
   return (
