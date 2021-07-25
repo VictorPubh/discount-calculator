@@ -4,6 +4,7 @@ import { useGlobals } from "../../context/globals";
 import { Container, Result } from "./styles";
 
 import Line from "./Line";
+import { Collapse } from "reactstrap";
 
 const Lecupon = () => {
   const { categories, setAmount, setDiscount, discount } = useGlobals();
@@ -38,17 +39,12 @@ const Lecupon = () => {
           handleChange={(value) => handleChange(value)}
         />
       ))}
-
-      {discount ? (
-        <>
-          <Result>
-              Economia/mês <span>{discount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-          </Result>
-          <Result>
-              Economia/ano <span>{(discount * 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-          </Result>
-        </>
-      ) : null}
+      <Result>
+          Economia/mês <span>{discount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+      </Result>
+      <Result>
+          Economia/ano <span>{(discount * 12).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+      </Result>
     </Container>
   );
 };

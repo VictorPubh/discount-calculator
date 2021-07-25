@@ -24,7 +24,7 @@ const Line = ({ id, icon, name, discount, min, max, amount, handleChange }) => {
       <span>
         <FontAwesomeIcon className="icon" icon={icon} />
         {`${name}`}
-        {/*<b>{`(${discount}%)`}</b>*/} 
+        {/*<b>{`(${diGosto dos meus cliunt}%)`}</b>*/} 
       </span>
       <CustomInput
         type="range"
