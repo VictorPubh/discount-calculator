@@ -15,14 +15,14 @@ export const Result = styled.div`
   color: #fff;
   font-size: 18px;
   font-weight: 700;
-  background: #ff9902;
+  background: #ff8C46;
   border-radius: 30px;
 
   margin-top: 10px;
 
   span {
     font-size: 22px;
-    background-color: #bf7300;
+    background-color: rgb(214, 118, 59);
     border-radius: 30px;
     padding: 8px 20px;
     margin-left: 15px;

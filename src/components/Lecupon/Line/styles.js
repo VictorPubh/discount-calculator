@@ -17,7 +17,7 @@ export const Container = styled.div`
   .icon {
     font-size: 1.5rem;
     margin-right: 15px;
-    color: #ff9902;
+    color: #ff8C46;
   }
 
   span {
@@ -67,7 +67,7 @@ export const Container = styled.div`
     margin-top: -11px;
     width: 30px;
     height: 30px;
-    background: #ff9902;
+    background: #ff8C46;
     border: 0px solid rgba(255, 82, 82, 0);
     border: 0;
     border-radius: 50px;
@@ -88,7 +88,7 @@ export const Container = styled.div`
   input[type="range"]::-moz-range-thumb {
     width: 30px;
     height: 30px;
-    background: #ff9902;
+    background: #ff8C46;
     border: 0px solid rgba(255, 82, 82, 0);
     border: 0;
     border-radius: 50px;
@@ -116,7 +116,7 @@ export const Container = styled.div`
   input[type="range"]::-ms-thumb {
     width: 30px;
     height: 30px;
-    background: #ff9902;
+    background: #ff8C46;
     border: 0px solid rgba(255, 82, 82, 0);
     border: 0;
     border-radius: 50px;
